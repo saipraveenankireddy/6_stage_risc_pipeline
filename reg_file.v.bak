@@ -1,0 +1,6 @@
+module reg_file(clk,rst,reg_write_en,reg_addr1,reg_addr2,reg_write_dest,reg_write_data,reg_data1,reg_data2);
+input clk,rst,reg_write_en;
+input [2:0] reg_addr1,reg_addr2,reg_write_dest;
+input [15:0] reg_write_data;
+output [15:0] reg_data1,reg_data2;
+

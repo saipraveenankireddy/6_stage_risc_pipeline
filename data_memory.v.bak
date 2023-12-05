@@ -1,0 +1,5 @@
+module data_memory(addr,write_data,write_en,read_en,data_out);
+input [15:0] addr  ;
+input [15:0]write_data ;
+input write_en,read_en;
+output [15:0] data_out;

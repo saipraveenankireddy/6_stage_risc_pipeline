@@ -1,0 +1,33 @@
+module alu_unit(inp1,inp2,inst,alu_ctrl,nand_ctrl,data_out,cout,sign_ext);
+input [15:0] inp1,inp2;
+input [15:0] inst;
+input [2:0] alu_ctrl,nand_ctrl;
+output [15:0] data_out;
+output cout;
+wire c;
+input sign_ext
+wire cz=inst[1:0]
+wire [15:0] inp_bar = ~ inp2;
+wire [15:0] ext_data;
+wire [15:0] alu1,alu2;
+sign_ext s1 (inst,ext_data,sign_ext);
+
+always@(*) begin
+	if(imm)	begin
+		alu1= inp1;alu2 =ext_data;c=1'b0; end
+	else	begin
+	case(alu_ctrl) 
+				3'b000:begin	alu1=inp1;alu2=inp2;c=1'b0; end
+				3'b001:begin	alu1=inp1;alu2=inp2;c=1'b0;	end
+				3'b010:begin	alu1=inp1;alu2=inp2;c=1'b0;	end
+				3'b011:begin alu1=inp1;alu2=inp2,c=inst[1];	end
+				3'b100:begin	alu1=inp1;alu2=inp_bar;c=1'b0; end
+				3'b101:begin	alu1=inp1;alu2=inp_bar;c=1'b0; end
+				3'b110:begin	alu1=inp1;alu2=inp_bar;c=1'b0;end
+				3'b111:begin	alu1=inp1;alu2=inp_bar;c=inst[1] end
+				
+	endcase
+	end
+end
+
+endmodule

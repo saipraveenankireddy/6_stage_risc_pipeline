@@ -1,0 +1,19 @@
+module inst_mem(clk,PC,instr);
+input clk;
+input [9:0] PC;
+output [15:0] instr;
+
+reg [15:0] instr_mem [0:1023];
+
+
+initial begin
+	for(i=0;i<1023;i++)
+		instr_mem[i] = 0;
+end
+		
+always@(posedge clk)
+begin 
+		
+		instr <= instr_mem[PC];
+end
+endmodule

@@ -1,0 +1,9 @@
+module decoder(inst,sign_ext,reg_write,reg_write_add,mem_write,reg_add1,reg_add2,alu_ctrl,);
+
+input [15:0] instruction;
+output sign_ext,reg_write,mem_write;
+output [2:0] reg_add1,reg_add2,reg_write_add;
+output [1:0] alu_ctrl;
+
+wire [2:0] RA = inst[11:9]  
+RB,RC;

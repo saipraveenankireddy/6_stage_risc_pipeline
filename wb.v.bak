@@ -1,0 +1,10 @@
+module wb(result ,addr);
+input [15:0] result;
+input [2:0] add;
+
+wire clk;
+wire [2:0] reg_addr1,reg_addr2;
+wire [15:0] reg_data1,reg_data2;
+wire reg_write_en =1;
+reg_file dut (clk,reg_write_en,reg_addr1,reg_addr2,add,result,reg_data1,reg_data2);
+endmodule

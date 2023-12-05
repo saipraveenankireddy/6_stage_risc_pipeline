@@ -1,0 +1,11 @@
+module main(clk);
+input clk;
+
+wire [9:0] PC;
+wire  [15:0] inst;
+wire sign_ext;
+inst_mem in1 (clk,PC,inst);
+
+decoder dec1 (inst,sign_ext,reg_write,reg_write_add,mem_write,reg_add1,reg_add2,alu_ctrl,imm,nand_ctrl);
+
+endmodule

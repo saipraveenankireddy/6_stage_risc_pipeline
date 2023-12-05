@@ -1,0 +1,19 @@
+module reg_read(RA,RC,RB,SM,LM,sel1,sel2,reg_add1,reg_add2,reg_add3);
+input [2:0] RA,RB,RC;
+input [15:0] SM,LM;
+input sel;
+input [1:0] sel2;
+
+output [2:0] reg_add1,reg_add2,reg_add3;
+
+wire [15:0] reg_add4;
+assign reg_add1 = (sel1) ? SM: RB;
+always@(*)
+begin
+	case(sel2)
+			2'b00: reg_add3 = RC;
+			2'b01: reg_add3 = RA
+			2'b10:reg_add3 = LM;
+	endcase
+end
+endmodule
